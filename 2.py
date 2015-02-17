@@ -1,38 +1,3 @@
-# import numpy
-# import theano.tensor as T
-# from theano import *
-
-# rnd = numpy.random
-# feats = 10
-
-# D = (rnd.randn(10, 2), rnd.randint(size=10,low=0,high=2))
-
-# from theano import pp
-# x = T.dscalar('x')
-# y = x**2
-# gy = T.grad(y,x)
-# f =function([x],gy)
-
-# print T.arange(10)
-
-# b=1
-# prim_ploy=023
-# nwm1=(1<<4)-1
-# nw=1<<4
-
-# log_table = [nwm1]*nw 
-# ilog_table = [0]*nw*3
-
-# for j in range(nwm1):
-#     log_table[b] = j
-#     ilog_table[j] = b
-#     b = b<<1
-#     if b&nw:
-#         b = (b^prim_ploy) & nwm1
-
-# for j in range(len(log_table)):
-#     print j,log_table[j],ilog_table[j]
-
 # Definition for singly-linked list.
 class ListNode:
     def __init__(self, x):
@@ -65,6 +30,8 @@ class Solution:
         print ''
 
     def getNum(self, l):
+        if len(l)==0:
+            return None
         head = ListNode(l[0])
         tmphead = head
         for i in range(1, len(l)):
