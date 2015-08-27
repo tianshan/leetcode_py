@@ -66,9 +66,31 @@ class Solution2:
                 return (mid+off)%n
         return -1
 
+class Solution3:
+    def search(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: int
+        """
+        l, r = 0, len(nums)-1
+        while l <= r:
+            mid = (l+r) / 2
+            if nums[mid] == target:
+                return mid
+            if nums[l] <= nums[mid]:
+                if target < nums[mid] and target >= nums[l]:
+                    r = mid - 1
+                else:
+                    l = mid + 1
+            if nums[r] >= nums[mid]:
+                if target > nums[mid] and target <= nums[r]:
+                    l = mid + 1
+                else:
+                    r = mid - 1
+        return -1
 
 if __name__=='__main__':
-    s = Solution2()
     data = [
             ([1], 0),
             ([0, 1, 2, 4, 5, 6, 7], -1),
@@ -91,4 +113,4 @@ if __name__=='__main__':
             ([4,1,2,3], -1)
             ]
     for d in data:
-        print d,s.search(d[0], d[1])
+        print d,Solution2().search(d[0], d[1])
